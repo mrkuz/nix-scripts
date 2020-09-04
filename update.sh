@@ -16,7 +16,6 @@ function ask() {
 
 BRANCH="nixpkgs-unstable"
 REMOTE="channels"
-KEEP_GENERATIONS="2"
 
 cd /nix/nixpkgs
 
@@ -59,10 +58,6 @@ if git rev-parse stash &>/dev/null; then
 fi
 
 sudo -i nixos-rebuild switch
-sudo nix-env --delete-generations +"$KEEP_GENERATIONS" --profile /nix/var/nix/profiles/system
-
 home-manager switch
-sudo nix-env --delete-generations +"$KEEP_GENERATIONS" --profile /nix/var/nix/profiles/per-user/markus/home-manager
-sudo nix-env --delete-generations +"$KEEP_GENERATIONS" --profile /nix/var/nix/profiles/per-user/markus/profile
 
-sudo nix-collect-garbage
+./clean-up.sh
