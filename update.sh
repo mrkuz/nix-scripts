@@ -14,7 +14,7 @@ function ask() {
   done
 }
 
-BRANCH="nixpkgs-unstable"
+BRANCH="nixos-unstable-small"
 REMOTE="channels"
 
 cd /nix/nixpkgs
@@ -60,4 +60,4 @@ fi
 sudo -i nixos-rebuild switch
 home-manager switch
 
-./clean-up.sh
+$HOME/Scripts/clean-up.sh
