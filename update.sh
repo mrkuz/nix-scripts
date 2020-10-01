@@ -15,7 +15,7 @@ function ask() {
 }
 
 BRANCH="nixos-unstable-small"
-REMOTE="channels"
+REMOTE="origin"
 
 cd /nix/nixpkgs
 
