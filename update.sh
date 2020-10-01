@@ -58,6 +58,7 @@ if git rev-parse stash &>/dev/null; then
 fi
 
 sudo -i nixos-rebuild switch
+sudo nix-channel --update home-manager
 home-manager switch
 
 $HOME/Scripts/clean-up.sh
