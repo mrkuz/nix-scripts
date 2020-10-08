@@ -61,4 +61,6 @@ sudo -i nixos-rebuild switch
 sudo nix-channel --update home-manager
 home-manager switch
 
-$HOME/Scripts/clean-up.sh
+if ask "Delete old generations"; then
+  $HOME/Scripts/clean-up.sh
+fi
