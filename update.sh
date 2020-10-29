@@ -21,13 +21,12 @@ cd /nix/nixpkgs
 
 sudo git fetch $REMOTE
 if git diff $BRANCH $REMOTE/$BRANCH --quiet --exit-code; then
-  echo "Nothing to do";
-  exit 0;
-fi
-
-git diff $BRANCH $REMOTE/$BRANCH --stat
-if ask "Show details"; then
-  git diff $BRANCH $REMOTE/$BRANCH -p
+  echo "Already up to date";
+else
+  git diff $BRANCH $REMOTE/$BRANCH --stat
+  if ask "Show details"; then
+    git diff $BRANCH $REMOTE/$BRANCH -p
+  fi
 fi
 
 if ! git diff --quiet --exit-code; then
